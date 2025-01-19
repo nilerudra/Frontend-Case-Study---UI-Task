@@ -1,18 +1,14 @@
 import React from "react";
 import "./Header.css";
 
-function Header({ setFilter, filter }) {
-  const handleFilter = (filterValue) => {
-    setFilter(filterValue);
+function Header({ currentPage }) {
+  const handleAddProfile = () => {
+    // Handle add profile logic here
   };
-
-  const getButtonStyle = (buttonFilter) => ({
-    backgroundColor: buttonFilter === filter ? "#d1c4e9" : "transparent",
-  });
 
   return (
     <div className="header">
-      <h1>Profiles</h1>
+      {currentPage === "Admin Panel" ? <h1>Admin Panel</h1> : <h1>Profiles</h1>}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Card.css";
 
-function Card({ profile }) {
+function Card({ profile, currentPage }) {
   const [showMap, setShowMap] = useState(false);
   const [showProfileDetails, setShowProfileDetails] = useState(false);
 
@@ -13,6 +13,26 @@ function Card({ profile }) {
   // Toggle profile details visibility
   const handleProfileClick = () => {
     setShowProfileDetails(!showProfileDetails);
+  };
+
+  // Handle delete logic
+  const handleDeleteClick = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/users/${profile._id}`,
+        {
+          method: "DELETE", // DELETE request
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete profile");
+      }
+
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting profile:", error);
+    }
   };
 
   return (
@@ -33,6 +53,15 @@ function Card({ profile }) {
           <button className="details btn" onClick={handleLocateClick}>
             Summary
           </button>
+          {currentPage === "Admin Panel" && (
+            <button
+              className="block btn"
+              style={{ backgroundColor: "red" }}
+              onClick={handleDeleteClick}
+            >
+              Delete
+            </button>
+          )}
         </div>
       </div>
 
