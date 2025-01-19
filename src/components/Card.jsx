@@ -45,7 +45,7 @@ function Card({ profile }) {
             </div>
 
             <div className="profile-popup">
-              <h4>Profile Details</h4>
+              <img src={profile.img} alt="Profile" className="profile-photo" />
               <p>
                 <strong>Name:</strong> {profile.name}
               </p>
@@ -53,15 +53,13 @@ function Card({ profile }) {
                 <strong>Description:</strong> {profile.description}
               </p>
               <p>
-                <strong>Address:</strong>
-                {profile.address}
+                <strong>Address:</strong> {profile.address}
               </p>
               <p>
                 <strong>Location:</strong> Lat: {profile.location.lat}, Lng:{" "}
                 {profile.location.lng}
               </p>
-              {/* Locate Button in Profile Popup */}
-              <button className="locate btn" onClick={handleLocateClick}>
+              <button className="locate" onClick={handleLocateClick}>
                 Locate
               </button>
             </div>
