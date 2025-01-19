@@ -1,0 +1,16 @@
+.container {
+  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+}

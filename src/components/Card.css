@@ -1,0 +1,110 @@
+.card {
+  height: 200px;
+  width: 340px;
+  background-color: #88888822;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.prof-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  padding: 7px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 70px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.block:hover {
+  background-color: black;
+  color: white;
+}
+.details:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.block {
+  background-color: transparent;
+}
+
+.details {
+  background-color: black;
+  color: white;
+}
+
+.details:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.button-group {
+  justify-self: baseline;
+}
+
+.locate {
+  background-color: #008cba;
+}
+
+.locate:hover {
+  background-color: #0077b3;
+}
+
+.map-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.map-container {
+  background: white;
+  padding: 20px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.profile-popup {
+  text-align: left;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.profile-popup h4 {
+  margin-top: 0;
+}
+
+/* Styling for the locate button */
+.locate {
+  background-color: #28a745;
+  color: white;
+}
