@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const AddProfileModal = ({ isOpen, onClose, onAddProfile }) => {
   const [formData, setFormData] = useState({
@@ -17,18 +18,27 @@ const AddProfileModal = ({ isOpen, onClose, onAddProfile }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onAddProfile({ ...formData, id: Date.now() });
-    onClose();
-    setFormData({
-      name: "",
-      email: "",
-      img: "",
-      description: "",
-      address: "",
-      location: { lat: "", lng: "" },
-    }); // Clear form fields
+    try {
+      const response = await axios.post(
+        "https://frontend-case-study-ui-task-backend.onrender.com/api/users",
+        formData
+      );
+      onAddProfile(response.data); // Assuming the response contains the added profile
+      onClose();
+      setFormData({
+        name: "",
+        email: "",
+        img: "",
+        description: "",
+        address: "",
+        location: { lat: "", lng: "" },
+      });
+    } catch (error) {
+      console.error("Error adding profile:", error);
+      alert("There was an error adding the profile.");
+    }
   };
 
   const handleGetLocationFromAddress = async () => {
@@ -99,8 +109,8 @@ const AddProfileModal = ({ isOpen, onClose, onAddProfile }) => {
     maxWidth: "500px",
     width: "100%",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    maxHeight: "90vh", // Reduced height
-    overflowY: "auto", // Enable scrolling if content overflows
+    maxHeight: "90vh",
+    overflowY: "auto",
   };
 
   const inputGroupStyle = {

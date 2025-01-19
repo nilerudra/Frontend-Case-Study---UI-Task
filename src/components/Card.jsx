@@ -19,7 +19,7 @@ function Card({ profile, currentPage }) {
   const handleDeleteClick = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/${profile._id}`,
+        `https://frontend-case-study-ui-task-backend.onrender.com/api/users/${profile._id}`,
         {
           method: "DELETE", // DELETE request
         }

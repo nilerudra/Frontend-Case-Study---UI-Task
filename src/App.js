@@ -20,7 +20,9 @@ function App() {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/users"); // Your API URL
+        const response = await fetch(
+          "https://frontend-case-study-ui-task-backend.onrender.com/api/users"
+        ); // Your API URL
         if (!response.ok) {
           throw new Error("Failed to fetch profiles");
         }
